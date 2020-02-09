@@ -8,10 +8,10 @@ virtualbox
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.virtualbox](https://galaxy.ansible.com/devops-toolbox.virtualbox)
+[https://galaxy.ansible.com/devopstoolbox.virtualbox](https://galaxy.ansible.com/devopstoolbox.virtualbox)
 
 ```bash
-ansible-galaxy install devops-toolbox.virtualbox
+ansible-galaxy install devopstoolbox.virtualbox
 ```
 
 Requirements
@@ -49,7 +49,7 @@ Example Playbook
   tasks:
     - name: virtualbox is configured
       import_role:
-        name: devops-toolbox.virtualbox
+        name: devopstoolbox.virtualbox
       vars:
         virtualbox_remove_packages: true
         virtualbox_enable_service: true
@@ -67,4 +67,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
