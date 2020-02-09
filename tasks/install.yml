@@ -1,0 +1,26 @@
+---
+# Install virtualbox packages
+- name: prereq repositories are installed
+  package:
+    name: "{{ virtualbox_packages_repos }}"
+    state: present
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ virtualbox_packages_prereq }}"
+    state: present
+  become: true
+
+- name: kernel headers are installed
+  package:
+    name: "{{ virtualbox_headers_install }}"
+    state: present
+  become: true
+  when: virtualbox_install_headers
+
+- name: packages are installed
+  package:
+    name: "{{ virtualbox_packages_install }}"
+    state: present
+  become: true

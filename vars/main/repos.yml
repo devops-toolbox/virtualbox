@@ -1,0 +1,62 @@
+---
+# vars file for packages
+
+# Repo files to create
+_virtualbox_repos_create:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+  Debian_10:
+    - repo: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian buster contrib"
+      filename: "/etc/apt/sources.list.d/virtualbox.list"
+      gpgkey: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+      id: "B9F8D658297AF3EFC18D5CDFA2F683C52980AECF"
+  Ubuntu_18:
+    - repo: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib"
+      filename: "/etc/apt/sources.list.d/virtualbox.list"
+      gpgkey: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+      id: "B9F8D658297AF3EFC18D5CDFA2F683C52980AECF"
+
+# Repo files to download
+_virtualbox_repos_download:
+  all: []
+  CentOS_7:
+    - url: "https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo"
+      checksum: "sha256:c18155119e5c1dd4becaf138bafeb7ee73f00ef12120a988ca60284968142e45"
+      dest: "/etc/yum.repos.d/virtualbox.repo"
+  RedHat_7:
+    - url: "https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo"
+      checksum: "sha256:c18155119e5c1dd4becaf138bafeb7ee73f00ef12120a988ca60284968142e45"
+      dest: "/etc/yum.repos.d/virtualbox.repo"
+  CentOS_8:
+    - url: "https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo"
+      checksum: "sha256:c18155119e5c1dd4becaf138bafeb7ee73f00ef12120a988ca60284968142e45"
+      dest: "/etc/yum.repos.d/virtualbox.repo"
+  RedHat_8:
+    - url: "https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo"
+      checksum: "sha256:c18155119e5c1dd4becaf138bafeb7ee73f00ef12120a988ca60284968142e45"
+      dest: "/etc/yum.repos.d/virtualbox.repo"
+  Fedora_31:
+    - url: "https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo"
+      checksum: "sha256:6544572ace630c061d595294d4f14c574fc94e75784d19f5518337bd6be811ed"
+      dest: "/etc/yum.repos.d/virtualbox.repo"
+  Debian_10: []
+  Ubuntu_18: []
+
+# Repo RPM packages
+_virtualbox_packages_repos:
+  all: []
+  CentOS_7:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  RedHat_7:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  CentOS_8:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  RedHat_8:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  Fedora31: []
+  Debian_10: []
+  Ubuntu_18: []

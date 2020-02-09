@@ -1,0 +1,34 @@
+---
+- name: extensions temporary directory created
+  file:
+    path: /tmp/vbox-extpacks
+    state: directory
+    mode: '0755'
+
+- name: extpack downloaded
+  get_url:
+    dest: /tmp/vbox-extpacks/
+    url: "{{ item }}"
+  with_items: "{{ virtualbox_extpack_urls }}"
+
+- name: list downloaded extpacks
+  find:
+    paths: /tmp/vbox-extpacks
+  register: virtualbox_extpacks
+
+- name: check installed extpacks
+  shell: |
+      set -o pipefail
+      vboxmanage list extpacks | grep Usable
+  args:
+    executable: /bin/bash
+  register: virtualbox_extpack_installed
+  ignore_errors: true
+  changed_when: false
+
+- name: extpacks installed
+  command: VBoxManage extpack install --replace "{{ item.path }}" \
+    --accept-license=56be48f923303c8cababb0bb4c478284b688ed23f16d775d729b89a2e8e5f9eb
+  with_items: "{{ virtualbox_extpacks.files }}"
+  when: "'false' not in virtualbox_extpack_installed.stdout"
+  become: true

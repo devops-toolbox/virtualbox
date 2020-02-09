@@ -1,0 +1,26 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+virtualbox_repos_create: "{{ _virtualbox_repos_create['all']
+  | union ( _virtualbox_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+virtualbox_repos_download: "{{ _virtualbox_repos_download['all']
+  | union ( _virtualbox_repos_download[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+virtualbox_packages_repos: "{{ _virtualbox_packages_repos['all']
+  | union ( _virtualbox_packages_repos[my_os]
+  | default([]) ) }}"
+virtualbox_packages_prereq: "{{ _virtualbox_packages_prereq['all']
+  | union ( _virtualbox_packages_prereq[my_os]
+  | default([]) ) }}"
+virtualbox_packages_install: "{{ _virtualbox_packages_install['all']
+  | union ( _virtualbox_packages_install[my_os]
+  | default([]) ) }}"

@@ -1,0 +1,87 @@
+---
+# Prereq packages: they get installed first
+
+_virtualbox_packages_prereq:
+  all: []
+  CentOS_7:
+    - binutils
+    - qt
+    - gcc
+    - make
+    - patch
+    - libgomp
+    - glibc-headers
+    - glibc-devel
+    - kernel-headers
+    - kernel-devel
+    - dkms
+  CentOS_8:
+    - binutils
+    - gcc
+    - make
+    - patch
+    - libgomp
+    - glibc-headers
+    - glibc-devel
+    - kernel-headers
+    - kernel-devel
+    - dkms
+  RedHat_7:
+    - binutils
+    - qt
+    - gcc
+    - make
+    - patch
+    - libgomp
+    - glibc-headers
+    - glibc-devel
+    - kernel-headers
+    - kernel-devel
+    - dkms
+  RedHat_8:
+    - binutils
+    - gcc
+    - make
+    - patch
+    - libgomp
+    - glibc-headers
+    - glibc-devel
+    - kernel-headers
+    - kernel-devel
+    - dkms
+  Fedora_31:
+    - binutils
+    - qt
+    - gcc
+    - make
+    - patch
+    - libgomp
+    - glibc-headers
+    - glibc-devel
+    - kernel-devel
+    - kernel-headers
+    - kernel-headers
+    - kernel-devel
+    - dkms
+  Debian_10:
+    - build-essential
+  Ubuntu_18:
+    - build-essential
+
+# Install packages
+_virtualbox_packages_install:
+  all: []
+  CentOS_7:
+    - "VirtualBox-{{ virtualbox_version_major }}"
+  RedHat_7:
+    - "VirtualBox-{{ virtualbox_version_major }}"
+  CentOS_8:
+    - "VirtualBox-{{ virtualbox_version_major }}"
+  RedHat_8:
+    - "VirtualBox-{{ virtualbox_version_major }}"
+  Fedora_31:
+    - "VirtualBox-{{ virtualbox_version_major }}"
+  Debian_10:
+    - "virtualbox-{{ virtualbox_version_major }}"
+  Ubuntu_18:
+    - "virtualbox-{{ virtualbox_version_major }}"

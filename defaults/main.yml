@@ -1,0 +1,59 @@
+---
+# defaults file for virtualbox
+
+# Add users to 'vboxusers' group
+virtualbox_setup_users: true
+
+# List of users to add to 'vboxusers' group
+virtualbox_users:
+  - ansible
+
+# Virtualbox configure (enable user, install headers and build kernel module)
+virtualbox_configure: false
+virtualbox_install_headers: false
+
+virtualbox_headers_install:
+  all: []
+  CentOS_7:
+    - kernel-headers
+    - kernel-devel
+    - "kernel-headers-{{ ansible-kernel }}"
+    - "kernel-devel-{{ ansible-kernel }}"
+  RedHat_7:
+    - kernel-headers
+    - kernel-devel
+    - "kernel-headers-{{ ansible-kernel }}"
+    - "kernel-devel-{{ ansible-kernel }}"
+  CentOS_8:
+    - kernel-headers
+    - kernel-devel
+    - "kernel-headers-{{ ansible-kernel }}"
+    - "kernel-devel-{{ ansible-kernel }}"
+  RedHat_8:
+    - kernel-headers
+    - kernel-devel
+    - "kernel-headers-{{ ansible-kernel }}"
+    - "kernel-devel-{{ ansible-kernel }}"
+  Fedora_31:
+    - kernel-headers
+    - kernel-devel
+    - "kernel-headers-{{ ansible-kernel }}"
+    - "kernel-devel-{{ ansible-kernel }}"
+  Debian_10:
+    - "linux-headers-{{ ansible-kernel }}"
+  Ubuntu_18:
+    - linux-headers-generic
+    - "linux-headers-{{ ansible-kernel }}"
+
+# Virtualbox version
+virtualbox_version_major: "6.1"
+virtualbox_version_full: "6.1.0"
+
+# Install extensions listed in virtualbox_extpacks_urls (requires license)
+virtualbox_install_extpacks: false
+
+# List of VirtualBox extensions to install
+virtualbox_extpack_urls:
+  - "https://download.virtualbox.org/virtualbox/\
+    {{ virtualbox_version_full }}/Oracle_VM_VirtualBox_Extension_Pack-\
+    {{ virtualbox_version_full }}.vbox-extpack"

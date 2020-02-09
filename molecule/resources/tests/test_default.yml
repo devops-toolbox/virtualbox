@@ -1,0 +1,7 @@
+# Molecule managed
+---
+file:
+  /usr/bin/vboxmanage:
+    exists: true
+    owner: root
+    group: root
